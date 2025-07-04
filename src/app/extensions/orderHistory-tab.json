@@ -1,0 +1,15 @@
+{
+  "type": "crm-record-tab",
+  "data": {
+    "title": "Order Histories",
+    "location": "crm.record.tab",
+    "objectTypes": [
+      {
+        "name": "CONTACTS"
+      }
+    ],
+    "module": {
+      "source": "ViewOrderHistory.js"
+    }
+  }
+}

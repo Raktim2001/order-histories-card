@@ -1,0 +1,17 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Order Histories",
+    "location": "crm.record.tab",
+    "uid": "order_histories_card",
+
+    "module": {
+      "file": "ViewOrderHistory.jsx"
+    },
+    "objectTypes": [
+      {
+        "name": "contacts"
+      }
+    ]
+  }
+}

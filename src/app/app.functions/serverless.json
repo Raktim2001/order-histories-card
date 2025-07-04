@@ -1,0 +1,8 @@
+{
+  "appFunctions": {
+    "orderHistories": {
+      "file": "serverlessFunctionsOrderHistories.js",
+      "secrets": ["HUBSPOT_PRIVATE_TOKEN"]
+    }
+  }
+}
