@@ -1,8 +1,8 @@
 const axios = require("axios");
 
 exports.main = async (context = {}) => {
-  console.log("HubSpot card called my function! context:", context);
-  const contactId = context.parameters.contactId;
+  // console.log("HubSpot card called my function! context:", context);
+  const { contactId } = context.parameters;
 
   const HUBSPOT_API_URL = "https://api.hubapi.com";
   const token = process.env.HUBSPOT_PRIVATE_TOKEN;
@@ -17,7 +17,7 @@ exports.main = async (context = {}) => {
           Authorization: `Bearer ${token}`,
         },
       }
-    );
+    )
 
     const orderIds = assocResp.data.results.map((r) => r.toObjectId);
 
@@ -52,9 +52,8 @@ exports.main = async (context = {}) => {
     }
 
     return {
-      statusCode: 200,
-      body: JSON.stringify(orders),
-      //body: JSON.stringify([{ customerName: "TEST USER" }]),
+      associations: assocResp.data,
+      orders
     };
   } catch (err) {
     console.error(err.response?.data || err);

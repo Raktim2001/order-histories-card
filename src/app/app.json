@@ -2,12 +2,13 @@
   "name": "Order Histories Card",
   "description": "Private app to display Order Histories tab in the center panel of contact records.",
   "uid": "order_histories_app",
-  "platformVersion": "2023.3",
+  "platformVersion": "2025.1",
   "scopes": [
     "crm.objects.contacts.read",
     "crm.objects.contacts.write",
     "crm.objects.custom.read",
-    "crm.objects.custom.write"
+    "cms.functions.read",
+    "cms.functions.write"
   ],
   "public": false,
   "extensions": {
@@ -25,8 +26,5 @@
         "file": "serverlessFunctionsOrderHistories.js"
       }
     }
-  },
-  "webhooks": {
-    "file": "./webhooks/webhooks.json"
   }
 }

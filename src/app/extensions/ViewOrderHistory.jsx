@@ -113,29 +113,32 @@ const ViewOrderHistory = ({ context, runServerless, sendAlert }) => {
 
       const result = await runServerless({
         name: "orderHistories",
-        parameters: { contactId: context.objectId },
+        parameters: { contactId: context.crm.objectId },
       });
 
-      console.log("runServerless result:", result);
+      console.log("runServerless result:", {
+        contactId: context.crm.objectId,
+        result,
+      });
 
-      if (result?.statusCode && result.statusCode !== 200) {
-        throw new Error(
-          `Serverless returned error ${result.statusCode}: ${result.body}`
-        );
-      }
+      // if (result?.statusCode && result.statusCode !== 200) {
+      //   throw new Error(
+      //     `Serverless returned error ${result.statusCode}: ${result.body}`
+      //   );
+      // }
 
-      let ordersData;
-      if (typeof result?.response === "string") {
-        ordersData = JSON.parse(result.response);
-      } else if (result?.response) {
-        ordersData = result.response;
-      } else {
-        throw new Error("Empty serverless response");
-      }
+      // let ordersData;
+      // if (typeof result?.response === "string") {
+      //   ordersData = JSON.parse(result.response);
+      // } else if (result?.response) {
+      //   ordersData = result.response;
+      // } else {
+      //   throw new Error("Empty serverless response");
+      // }
 
-      console.log("Parsed ordersData:", ordersData);
+      // console.log("Parsed ordersData:", ordersData);
 
-      setOrders(ordersData);
+      // setOrders(ordersData);
 
       sendAlert({
         type: "success",
